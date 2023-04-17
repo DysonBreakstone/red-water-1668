@@ -8,3 +8,10 @@
    <li><%= ingredient.name%></li>
   <% end %>
 </ul>
+
+<%= "Add an ingredient to this dish" %>
+<%= form_with url: "/chefs/dishes/#{@dish.id}", method: :patch, local: true do |form| %>
+  <%= form.label :ingredient_id %>
+  <%= form.number_field :ingredient_id %>
+  <%= form.submit %>
+<% end %>

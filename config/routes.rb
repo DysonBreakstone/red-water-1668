@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :chefs, only: [:show]
   
   namespace :chefs do
-    resources :dishes, only: [:index, :show]
+    resources :dishes, only: [:index, :show, :update]
   end
+
+
 end
