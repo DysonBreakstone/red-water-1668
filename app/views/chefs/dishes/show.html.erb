@@ -1,0 +1,17 @@
+<h1><%= @dish.name %></h1>
+<h2><%= "chef: #{@dish.chef.name}" %></h2>
+<p><%= "description: #{@dish.description}" %></p>
+<p><%= "calories: #{@dish.calories}" %></p>
+<%= "ingredients: " %>
+<ul>
+  <% @dish.ingredients.each do |ingredient| %>
+   <li><%= ingredient.name%></li>
+  <% end %>
+</ul>
+
+<%= "Add an ingredient to this dish" %>
+<%= form_with url: "/chefs/dishes/#{@dish.id}", method: :patch, local: true do |form| %>
+  <%= form.label :ingredient_id %>
+  <%= form.number_field :ingredient_id %>
+  <%= form.submit %>
+<% end %>
